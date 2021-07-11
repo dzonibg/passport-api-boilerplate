@@ -72,17 +72,17 @@ class BaseApiController extends Controller
         return $this->respond([$message], $this->createdStatus);
     }
 
-    final public function respondUnauthorized(int $error_code, string $message = 'You are not authorized for this'): JsonResponse
+    final public function respondUnauthorized(int $error_code = 401, string $message = 'You are not authorized for this'): JsonResponse
     {
         return $this->respondWithError([$message], null, $error_code);
     }
 
-    final public function respondNotFound(int $error_code, string $message = 'Resource not found'): JsonResponse
+    final public function respondNotFound(int $error_code = 404, string $message = 'Resource not found'): JsonResponse
     {
         return $this->respondWithError([$message], $error_code, $this->missingUrlStatus);
     }
 
-    final public function respondInternalError(int $error_code, string $message = "Internal error"): JsonResponse
+    final public function respondInternalError(int $error_code = 500, string $message = "Internal error"): JsonResponse
     {
         return $this->respondWithError([$message], $error_code, $this->serverErrorStatus);
     }
