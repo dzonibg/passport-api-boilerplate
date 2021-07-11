@@ -55,8 +55,7 @@ final class AuthenticationController extends BaseApiController
             ValidationHelper::validate($data, [
                 'email' => 'required|unique:users|email',
                 'password' => 'required',
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'name' => 'required',
             ]);
 
             $user = $userRepository->registerUser($data);
